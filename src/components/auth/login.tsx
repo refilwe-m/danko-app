@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { Alert, AlertDescription, Button, Input } from '../ui';
 import { supabase } from '../../service';
+import { useNavigate } from 'react-router-dom';
 
 
 export const LoginForm = () => {
@@ -9,6 +10,7 @@ export const LoginForm = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,6 +24,9 @@ export const LoginForm = () => {
       });
 
       if (error) throw error;
+
+      navigate('/dashboard');
+
     } catch (err: any) {
       setError(err.message);
     } finally {

@@ -1,6 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { useAuth } from './service';
-import { AuthPage } from './components';
+import { AuthPage, DashboardPage } from './components';
 
 function App() {
   const { user, loading } = useAuth();
@@ -17,6 +17,7 @@ function App() {
           element={isAuthenticated ? <Navigate to="/dashboard" /> : <AuthPage />} 
         />
        <Route path='/' element={<AuthPage/>}/>
+       <Route path='/dashboard' element={<DashboardPage/>}/>
       </Routes>
     </BrowserRouter>
 }

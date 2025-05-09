@@ -11,7 +11,7 @@ export const AuthPage = () => {
     <AuthLayout title={isLogin ? 'Sign In' : 'Create Account'}>
       {isLogin ? <LoginForm /> : <RegisterForm />}
       
-      <div className="mt-4 text-center bg-black">
+      <div className="mt-4 text-center">
         <Button
           variant="link"
           onClick={() => setIsLogin(!isLogin)}
